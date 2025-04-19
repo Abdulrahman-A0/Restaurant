@@ -1,18 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Resturant_Project.Data;
-using Resturant_Project.Migrations;
+using Microsoft.EntityFrameworkCore;
+using Restaurant_Project.Data;
+using Restaurant_Project.Migrations;
 
-namespace Resturant_Project.Controllers
+namespace Restaurant_Project.Controllers
 {
     public class MenuController : Controller
     {
 
-        AppDbContext db =new AppDbContext();
+        AppDbContext db = new AppDbContext();
         public IActionResult Menu()
         {
 
-            var dishes =db.Dishes.ToList();
-            return View("Menu", dishes);
+            var menuModel = db.Categories
+                .Include(c => c.Dishes)
+                .ToList();
+            return View("Menu", menuModel);
         }
 
 

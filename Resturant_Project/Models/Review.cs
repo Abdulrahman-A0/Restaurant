@@ -1,4 +1,4 @@
-﻿namespace Resturant_Project.Models
+﻿namespace Restaurant_Project.Models
 {
     public class Review
     {
