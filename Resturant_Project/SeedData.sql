@@ -59,16 +59,16 @@ VALUES
 -- Insert Dishes
 INSERT INTO Dishes (Name, Description, Image, AverageRate, Price, InStock, CategoryId)
 VALUES
-('Grilled Sea Bass', 'Deliciously seasoned and grilled', 'seabass.jpg', 4.5, 150, 1, 2),
-('Fried Shrimp', 'Golden and crispy shrimp', 'fried_shrimp.jpg', 4.7, 120, 1, 3),
-('Lobster Thermidor', 'Classic French lobster dish', 'lobster.jpg', 4.9, 300, 1, 1),
-('Crab Curry', 'Spicy crab curry with rice', 'crab_curry.jpg', 4.2, 180, 1, 1),
-('Seafood Soup', 'Mixed seafood in creamy soup', 'seafood_soup.jpg', 4.6, 90, 1, 3),
-('Calamari Rings', 'Fried calamari with dip', 'calamari.jpg', 4.1, 85, 1, 3),
-('Seafood Pasta', 'Pasta with shrimp and mussels', 'pasta.jpg', 4.8, 160, 1, 1),
-('Lemonade', 'Freshly squeezed lemon drink', 'lemonade.jpg', 4.3, 25, 1, 4),
-('Tiramisu', 'Italian layered dessert', 'tiramisu.jpg', 4.9, 70, 1, 4),
-('Grilled Tilapia', 'Grilled fish with herbs', 'tilapia.jpg', 4.4, 130, 1, 2);
+('Grilled Sea Bass', 'Deliciously seasoned and grilled', 'dish3.png', 4.5, 150, 1, 2),
+('Fried Shrimp', 'Golden and crispy shrimp', 'dish5.png', 4.7, 120, 1, 3),
+('Lobster Thermidor', 'Classic French lobster dish', 'dish6.png', 4.9, 300, 1, 1),
+('Crab Curry', 'Spicy crab curry with rice', 'dish7.png', 4.2, 180, 1, 1),
+('Seafood Soup', 'Mixed seafood in creamy soup', 'dish1.png', 4.6, 90, 1, 3),
+('Calamari Rings', 'Fried calamari with dip', 'dish3.png', 4.1, 85, 1, 3),
+('Seafood Pasta', 'Pasta with shrimp and mussels', 'dish1.png', 4.8, 160, 1, 1),
+('Lemonade', 'Freshly squeezed lemon drink', 'dish5.png', 4.3, 25, 1, 4),
+('Tiramisu', 'Italian layered dessert', 'dish7.png', 4.9, 70, 1, 4),
+('Grilled Tilapia', 'Grilled fish with herbs', 'dish6.png', 4.4, 130, 1, 2);
 
 -- Insert Reservations
 INSERT INTO Reservations (Descreption, UserId, TimeSlotId, TableCount)
