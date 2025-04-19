@@ -23,6 +23,7 @@ namespace Resturant_Project.Migrations
                 type: "int",
                 nullable: false,
                 defaultValue: 0);
+
         }
 
         /// <inheritdoc />
