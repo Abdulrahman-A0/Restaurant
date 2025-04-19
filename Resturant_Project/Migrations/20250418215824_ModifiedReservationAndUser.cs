@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Resturant_Project.Migrations
+namespace Restaurant_Project.Migrations
 {
     /// <inheritdoc />
     public partial class ModifiedReservationAndUser : Migration

@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Resturant_Project.Data;
+using Restaurant_Project.Data;
 
 #nullable disable
 
-namespace Resturant_Project.Migrations
+namespace Restaurant_Project.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     partial class AppDbContextModelSnapshot : ModelSnapshot
@@ -22,7 +22,7 @@ namespace Resturant_Project.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("Resturant_Project.Models.Category", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -39,7 +39,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Dish", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Dish", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -78,7 +78,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("Dishes");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Order", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Order", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -105,7 +105,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.OrderDetail", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -132,7 +132,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("OrderDetails");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Payment", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Payment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -160,7 +160,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("Payments");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Reservation", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Reservation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -190,7 +190,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Review", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Review", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -216,7 +216,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.TimeSlot", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.TimeSlot", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -238,7 +238,7 @@ namespace Resturant_Project.Migrations
                     b.ToTable("TimeSlots");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.User", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -278,9 +278,9 @@ namespace Resturant_Project.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Dish", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Dish", b =>
                 {
-                    b.HasOne("Resturant_Project.Models.Category", "Category")
+                    b.HasOne("Restaurant_Project.Models.Category", "Category")
                         .WithMany("Dishes")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -289,9 +289,9 @@ namespace Resturant_Project.Migrations
                     b.Navigation("Category");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Order", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Order", b =>
                 {
-                    b.HasOne("Resturant_Project.Models.User", "User")
+                    b.HasOne("Restaurant_Project.Models.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -300,15 +300,15 @@ namespace Resturant_Project.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.OrderDetail", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.OrderDetail", b =>
                 {
-                    b.HasOne("Resturant_Project.Models.Dish", "Dish")
+                    b.HasOne("Restaurant_Project.Models.Dish", "Dish")
                         .WithMany("OrderDetails")
                         .HasForeignKey("DishId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Resturant_Project.Models.Order", "Order")
+                    b.HasOne("Restaurant_Project.Models.Order", "Order")
                         .WithMany("Details")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -319,26 +319,26 @@ namespace Resturant_Project.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Payment", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Payment", b =>
                 {
-                    b.HasOne("Resturant_Project.Models.Order", "Order")
+                    b.HasOne("Restaurant_Project.Models.Order", "Order")
                         .WithOne("Payment")
-                        .HasForeignKey("Resturant_Project.Models.Payment", "OrderId")
+                        .HasForeignKey("Restaurant_Project.Models.Payment", "OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Reservation", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Reservation", b =>
                 {
-                    b.HasOne("Resturant_Project.Models.TimeSlot", "TimeSlot")
+                    b.HasOne("Restaurant_Project.Models.TimeSlot", "TimeSlot")
                         .WithMany("Reservations")
                         .HasForeignKey("TimeSlotId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Resturant_Project.Models.User", "User")
+                    b.HasOne("Restaurant_Project.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -349,15 +349,15 @@ namespace Resturant_Project.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Review", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Review", b =>
                 {
-                    b.HasOne("Resturant_Project.Models.Dish", "Dish")
+                    b.HasOne("Restaurant_Project.Models.Dish", "Dish")
                         .WithMany("Reviews")
                         .HasForeignKey("DishId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Resturant_Project.Models.User", "User")
+                    b.HasOne("Restaurant_Project.Models.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -368,19 +368,19 @@ namespace Resturant_Project.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Category", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Category", b =>
                 {
                     b.Navigation("Dishes");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Dish", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Dish", b =>
                 {
                     b.Navigation("OrderDetails");
 
                     b.Navigation("Reviews");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.Order", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.Order", b =>
                 {
                     b.Navigation("Details");
 
@@ -388,12 +388,12 @@ namespace Resturant_Project.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.TimeSlot", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.TimeSlot", b =>
                 {
                     b.Navigation("Reservations");
                 });
 
-            modelBuilder.Entity("Resturant_Project.Models.User", b =>
+            modelBuilder.Entity("Restaurant_Project.Models.User", b =>
                 {
                     b.Navigation("Orders");
 

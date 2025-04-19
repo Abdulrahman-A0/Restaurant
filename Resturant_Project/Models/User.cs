@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Resturant_Project.Models
+namespace Restaurant_Project.Models
 {
 
     public enum UserRole
