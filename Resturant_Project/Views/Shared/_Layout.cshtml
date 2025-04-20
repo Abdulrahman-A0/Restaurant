@@ -42,12 +42,20 @@
             </a>
 
             <nav id="navmenu" class="navmenu">
-                <ul>
+                <ul class="ul">
                     <li><a href="/Home/index" class="active">Home<br></a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="/Home/index/#about">About</a></li>
                     <li><a href="/Menu/Menu">Menu</a></li>
-                    <li><a href="#chefs">Chefs</a></li
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="/Home/index/#chefs">Chefs</a></li
+                    <li><a href="/Home/index/#contact">Contact</a></li>
+                    <li class="search">
+                        <form action="/Home/index" method="get">
+                        <div> 
+                        <i class="fa-solid fa-magnifying-glass search-icon" style="color: #053094;"></i>
+                        <input type="search" id="searchbar" placeholder="Type a Keyword"/>
+                    </div>
+                    </form>    
+                </li>
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
@@ -80,7 +88,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/main.js" asp-append-version="true"></script>
-
+    <!-- FontAwesome File-->
+    <script src="https://kit.fontawesome.com/f21c378b97.js" crossorigin="anonymous"></script>
 
 </body>
 </html>
