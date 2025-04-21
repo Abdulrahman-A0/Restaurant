@@ -1,8 +1,8 @@
-﻿
+﻿@model List<Category>
 
 <div class="category">
     <div class="c-view">
-        <div >
+        <div>
             <h2> All Category</h2>
         </div>
         <div>
@@ -10,67 +10,42 @@
         </div>
 
     </div>
-<div class="table-container">
+    <div class="table-container">
 
-<table class="table-design table">
-        <tr class="thead">
-            <td>
-                  ID
-            </td>
-            <td>
-                  Name
-            </td>
-            <td>
-                  Update
-            </td><td>
-                  Delete
-            </td>
-            
-        </tr>
+        <table class="table-design table">
+            <tr class="thead">
+                <td>
+                    ID
+                </td>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Update
+                </td>
+                <td>
+                    Delete
+                </td>
 
-         <tr>
-            <td>
-                  ID
-            </td>
-            <td>
-                  Name
-            </td>
-            <td>
-                <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
-            </td>
-            <td>
-                <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
-            </td>
-            
-        </tr> <tr>
-            <td>
-                  ID
-            </td>
-            <td>
-                  Name
-            </td>
-            <td>
-                <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
-            </td>
-            <td>
-                <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
-            </td>
-            
-        </tr> <tr>
-            <td>
-                  ID
-            </td>
-            <td>
-                  Name
-            </td>
-            <td>
-                <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
-            </td>
-            <td>
-                <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
-            </td>
-            
-        </tr>
-</table>
-</div> 
+            </tr>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>
+                        @category.Id
+                    </td>
+                    <td>
+                        @category.Name
+                    </td>
+                    <td>
+                        <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
+                    </td>
+                    <td>
+                        <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
+                    </td>
+
+                </tr>
+            }
+        </table>
+    </div>
 </div>

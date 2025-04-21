@@ -1,4 +1,4 @@
-﻿
+﻿@model List<Dish>
 
 <div class="category">
     <div class="c-view">
@@ -47,52 +47,42 @@
                 </td>
 
             </tr>
+            @foreach (var dish in Model)
+            {
+                <tr>
+                    <td>
+                        @dish.Id
+                    </td>
+                    <td>
+                        @dish.Name
+                    </td>
+                    <td>
+                        @dish.Description
+                    </td>
+                    <td>
+                        <img src="/assets/img/@dish.Image" />
+                    </td>
+                    <td>
+                        @dish.AverageRate
+                    </td>
+                    <td>
+                        @(@dish.InStock ? "InStock" : "السمكه صاحية")
+                    </td>
+                    <td>
+                        @dish.Price
+                    </td>
+                    <td>
+                        @dish.CategoryId
+                    </td>
+                    <td>
+                        <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
+                    </td>
+                    <td>
+                        <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
+                    </td>
 
-            <tr>
-                <td>
-                    ID
-                </td>
-                <td>
-                    Name
-                </td>
-                <td>
-                    <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
-                </td>
-                <td>
-                    <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
-                </td>
-
-            </tr>
-            <tr>
-                <td>
-                    ID
-                </td>
-                <td>
-                    Name
-                </td>
-                <td>
-                    <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
-                </td>
-                <td>
-                    <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
-                </td>
-
-            </tr>
-            <tr>
-                <td>
-                    ID
-                </td>
-                <td>
-                    Name
-                </td>
-                <td>
-                    <button class="table-icon"><i class="fa-regular fa-pen-to-square" style="color: #d8ac0e;"></i></button>
-                </td>
-                <td>
-                    <button class="table-icon"><i class="fa-solid fa-trash-can" style="color: #d33131;"></i></button>
-                </td>
-
-            </tr>
+                </tr>
+            }
         </table>
     </div>
 </div>
