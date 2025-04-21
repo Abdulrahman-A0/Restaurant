@@ -8,11 +8,16 @@ namespace Restaurant_Project.Controllers
     public class MenuController : Controller
     {
 
-        AppDbContext db = new AppDbContext();
+        private readonly AppDbContext _context;
+
+        public MenuController(AppDbContext context)
+        {
+            _context = context;
+        }
         public IActionResult Menu()
         {
 
-            var menuModel = db.Categories
+            var menuModel = _context.Categories
                 .Include(c => c.Dishes)
                 .ToList();
             return View("Menu", menuModel);

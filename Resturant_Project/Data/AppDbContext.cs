@@ -1,11 +1,15 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Restaurant_Project.Models;
 
 namespace Restaurant_Project.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
-        public DbSet<User> Users { get; set; }
+        public AppDbContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Category> Categories { get; set; }
         public DbSet<Dish> Dishes { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -18,13 +22,6 @@ namespace Restaurant_Project.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-
-            var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json")
-                  .Build();
-
-            var connectionString = configuration.GetConnectionString("Constr");
-
-            optionsBuilder.UseSqlServer(connectionString);
         }
     }
 }

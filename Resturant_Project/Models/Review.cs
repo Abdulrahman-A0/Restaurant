@@ -1,4 +1,6 @@
-﻿namespace Restaurant_Project.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Restaurant_Project.Models
 {
     public class Review
     {
@@ -6,7 +8,8 @@
         public int Rate { get; set; }
         public int DishId { get; set; }
         public Dish Dish { get; set; }
-        public int UserId { get; set; }
+        [ForeignKey("User")]
+        public string UserId { get; set; }
         public User User { get; set; }
 
     }
