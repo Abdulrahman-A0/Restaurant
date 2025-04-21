@@ -83,38 +83,72 @@
     display: flex;
     justify-content: space-between;
 }
-
-    .c-view a {
-        color: white;
-        text-decoration: none;
-    }
-
+.c-view a {
+    color: white;
+    text-decoration: none;
+}
 .table-container {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+display: flex !important;
+justify-content: center !important;
+align-items: center !important;
 }
 
 .table-design {
-    border: 1px solid #212529 !important;
-    width: 70% !important;
+border: 1px solid #212529 !important;
+width: 70% !important;
 }
-
-    .table-design td {
-        border: 1px solid #212529 !important;
-    }
-
-    .table-design .thead td {
-        color: #212529 !important;
-        background-color: #18a1e0 !important;
-        text-align: center;
-    }
-
+.table-design td {
+    border: 1px solid #212529 !important;
+}
+.table-design .thead td {
+    color: #212529 !important;
+    background-color: #18a1e0 !important;
+    text-align: center;
+}
 .table-icon {
-    background-color: transparent;
-    border: none;
+background-color: transparent;
+border: none;
 }
 
 .table-design img {
-    width: 70px;
+width: 70px;
 }
+/*End Table Design*/
+
+/*Start Account*/
+.account {
+    color:white;
+    background-image:url(/assets/img/stats2.png);
+    height:100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index:100;
+}
+.account:before {
+    z-index:-1 !important;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 65%);
+}
+.account .btn {
+    background-color: #18a1e0 !important;
+}
+.account .btn:hover {
+    background-color: #25a0d9 !important;
+}
+.account-container {
+    margin: 0 auto !important;
+    width: 50% !important;
+    z-index:10000;
+    position:absolute;
+    transform:translate(-50%,-50%);
+    top:50% !important;
+    left:50% !important;
+}
+/*End Account*/
