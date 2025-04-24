@@ -1,4 +1,6 @@
-﻿@* @{
+﻿@model VerifyEmailViewModel
+
+@* @{
     ViewData["Title"] = "Change Password";
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 } *@
@@ -29,7 +31,8 @@
             <div  class="text-danger"></div>
             <div class="mb-3">
                 <label  for="email"class="form-label">Email:</label>
-                <input class="form-control" id="email" name="Email"/>
+                <input class="form-control" id="email" asp-for="Email"/>
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <input type="submit" value="Submit" class="btn btn-success w-100 p-2 btn" />
             <div class="text-center mt-2">

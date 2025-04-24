@@ -23,8 +23,11 @@ namespace Restaurant_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public async Task<IActionResult> Login(LoginRegisterViewModel model)
         {
+            ModelState.Remove("Phone");
+            ModelState.Remove("Address");
+            ModelState.Remove("Name");
             if (ModelState.IsValid)
             {
                 var result = await signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
@@ -43,7 +46,7 @@ namespace Restaurant_Project.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
+        public async Task<IActionResult> Register(LoginRegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -54,13 +57,14 @@ namespace Restaurant_Project.Controllers
                     UserName = model.Email,
                     PhoneNumber = model.Phone,
                     Address = model.Address,
-                    Image = "~/assets/img/DefaultUserImg"
+                    Image = "DefaultUserImg"
                 };
 
                 var result = await userManager.CreateAsync(User, model.Password);
 
                 if (result.Succeeded)
                 {
+                    await userManager.AddToRoleAsync(User, "Customer");
                     return RedirectToAction("LoginSignUp", "Account");
                 }
                 else

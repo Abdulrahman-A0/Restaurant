@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Project.Models;
 
@@ -23,5 +24,19 @@ namespace Restaurant_Project.Data
         {
             base.OnConfiguring(optionsBuilder);
         }
+
+        public static async Task SeedRoles(RoleManager<IdentityRole> roleManager)
+        {
+            string[] roleNames = { "Admin", "Customer" };
+
+            foreach (var roleName in roleNames)
+            {
+                if (!await roleManager.RoleExistsAsync(roleName))
+                {
+                    await roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+            }
+        }
+
     }
 }

@@ -1,14 +1,27 @@
 ﻿﻿@using Microsoft.AspNetCore.Identity;
 @inject SignInManager<User> signInManager;
+@inject UserManager<User> userManager
 
-    @if (signInManager.IsSignedIn(User))
+<head>
+    <link href="~/assets/css/Loggedin.css" rel="stylesheet" />
+</head>
+@if (signInManager.IsSignedIn(User))
+{
+    var currentUser = await userManager.GetUserAsync(User);
+    bool isAdmin = false;
+    if (currentUser != null)
     {
+        isAdmin = await userManager.IsInRoleAsync(currentUser, "Admin");
+    }
 
+    <div class="logged">
+        <p>Hello, @(isAdmin ? $"BigFish {currentUser.Name}" : currentUser.Name)</p>
+        <img src="~/assets/img/@currentUser.Image" />
         <a class="btn-getstarted" asp-controller="Account" asp-action="Logout">Logout</a>
-    }
-    else
-    {
-        <a class="btn-getstarted" asp-controller="Account" asp-action="LoginSignUp">Login/Register</a>
-        
-    }
+    </div>
+}
+else
+{
+    <a class="btn-getstarted" asp-controller="Account" asp-action="LoginSignUp">Login/Register</a>    
+}
 
