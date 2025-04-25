@@ -2,6 +2,7 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    margin-left:20px;
 }
 
     .logged p {
@@ -12,3 +13,11 @@
         width: 40px;
         border-radius: 20px;
     }
+/*for tazbeet*/
+.isAdmin{
+    color: #18a1e0 !important;
+}
+.user{
+    color:black !important;
+}
+/*for end tazbeet*/

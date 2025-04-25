@@ -1,0 +1,64 @@
+﻿.rating {
+    display: inline-block;
+    direction: rtl;  Right to left for easier hover effect 
+    unicode-bidi: bidi-override;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    display: inline-block;
+    padding: 5px;
+    font-size: 20px;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+    color: #ffcc00;
+}
+ Different rating icon styles 
+.hearts .rating label:before {
+    content: '\f004';  Heart icon 
+    font-family: 'Font Awesome 6 Free';
+}
+
+.thumbs .rating label:before {
+    content: '\f164';  Thumbs up icon 
+    font-family: 'Font Awesome 6 Free';
+}
+
+.stars .rating label:before {
+    content: '\f005';  /*Star icon*/ 
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+ Style selector 
+.style-selector {
+    margin-top: 30px;
+}
+
+.style-selector button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.style-selector button:hover {
+    background-color: #45a049;
+}

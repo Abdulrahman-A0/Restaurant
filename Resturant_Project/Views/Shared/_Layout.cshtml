@@ -30,11 +30,10 @@
 </head>
 <body class="index-page">
     <header id="header" class="header d-flex align-items-center sticky-top">
+        <div class="header-container">
         <div class="container position-relative d-flex align-items-center justify-content-between">
 
             <a href="/Home/index" class="logo d-flex align-items-center me-auto me-xl-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="~/assets/img/logo.png" alt=""> -->
                 <div class="food">
                     <h1 class="sitename txt-color">7SEAS</h1>
                     @* <span>.</span> *@
@@ -58,6 +57,7 @@
                             </ul>
                         </li>
                     }
+                    <li><a class="fish-a" href="/Cart/Cart"><i class="fa-solid fa-fish fish"></i></a></li>
                     <li class="search">
                         <form action="/Home/index" method="get">
                         <div> 
@@ -66,12 +66,13 @@
                         </div>
                     </form>    
                     </li>
+                    
+
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
-
-            <partial name="_LoginPartial" />
-
+        </div>
+        <partial name="_LoginPartial" />
         </div>
     </header>
     <main class="main pb-3" role="main">

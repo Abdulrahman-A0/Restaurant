@@ -3,7 +3,8 @@
 @inject UserManager<User> userManager
 
 <head>
-    <link href="~/assets/css/Loggedin.css" rel="stylesheet" />
+    <link href="~/assets/css/Loggedin.css" asp-append-version="true" rel="stylesheet" />
+
 </head>
 @if (signInManager.IsSignedIn(User))
 {
@@ -15,13 +16,17 @@
     }
 
     <div class="logged">
-        <p>Hello, @(isAdmin ? $"BigFish {currentUser.Name}" : currentUser.Name)</p>
+        <div class="center-photo">
         <img src="~/assets/img/@currentUser.Image" />
+            <p>Hello, <span @(isAdmin ? "class=isAdmin" : "class=user")>@currentUser.Name</span></p>
+        </div>
         <a class="btn-getstarted" asp-controller="Account" asp-action="Logout">Logout</a>
     </div>
 }
 else
 {
-    <a class="btn-getstarted" asp-controller="Account" asp-action="LoginSignUp">Login/Register</a>    
+    <div class="logged">
+        <a class="btn-getstarted" asp-controller="Account" asp-action="LoginSignUp">Login/Register</a>
+    </div>
 }
 

@@ -5,6 +5,9 @@
         return text.ToLower().Replace(" ", "-").Replace("&", "").Replace("#", "");
     }
 }
+<head>
+    <link rel="stylesheet" href="~/assets/css/rank.css">
+</head>
 <!-- Menu Section -->
 <section id="menu" class="menu section">
 
@@ -50,6 +53,20 @@
                                 <p class="ingredients">
                                     @dish.Description
                                 </p>
+                                <div class="rating-container stars">
+                                    <div class="rating">
+                                        <input type="radio" id="star5_@dish.AverageRate" name="rating_@dish.AverageRate" value="5" />
+                                        <label for="star5_@dish.AverageRate" title="5 stars"></label>
+                                        <input type="radio" id="star4_@dish.AverageRate" name="rating_@dish.AverageRate" value="4" />
+                                        <label for="star4_@dish.AverageRate" title="4 stars"></label>
+                                        <input type="radio" id="star3_@dish.AverageRate" name="rating_@dish.AverageRate" value="3" />
+                                        <label for="star3_@dish.AverageRate" title="3 stars"></label>
+                                        <input type="radio" id="star2_@dish.AverageRate" name="rating_@dish.AverageRate" value="2" />
+                                        <label for="star2_@dish.AverageRate" title="2 stars"></label>
+                                        <input type="radio" id="star1_@dish.AverageRate" name="rating_@dish.AverageRate" value="1" />
+                                        <label for="star1_@dish.AverageRate" title="1 star"></label>
+                                    </div>
+                                </div>
                                 <p class="price">
                                     @dish.Price
                                 </p>
@@ -62,6 +79,10 @@
             }
         </div>
     </div>
-
+    <script>
+        function changeStyle(style) {
+            const container = document.getElementById('ratingContainer');
+            container.className = 'rating-container ' + style;
+    </script>
 </section>
 <!-- /Menu Section -->

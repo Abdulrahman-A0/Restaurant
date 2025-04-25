@@ -1,6 +1,12 @@
 ﻿body {
 }
-
+/*start-header*/
+.header-container {
+    display: flex;
+    width: 90%;
+    margin: 0 auto;
+}
+/*End-Header*/
 .footer2 {
     position: absolute;
 }
@@ -152,3 +158,28 @@ width: 70px;
     left:50% !important;
 }
 /*End Account*/
+/*start-logged-in*/
+.center-photo{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    text-align:center;
+}
+/*End-logged-in*
+/*Fish*/
+.fish{
+    font-size:25px !important;
+}
+.fish-a:hover:before{
+    visibility:hidden !important;
+    background-color:none !important; 
+}
+/*ENd Fish*/
+/*Start-Cart*/
+.cart-btn {
+    background-color: #18a1e0;
+    border:none;
+}
+/*End-Cart*/

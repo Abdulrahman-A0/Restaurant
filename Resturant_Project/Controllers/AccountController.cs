@@ -57,7 +57,7 @@ namespace Restaurant_Project.Controllers
                     UserName = model.Email,
                     PhoneNumber = model.Phone,
                     Address = model.Address,
-                    Image = "DefaultUserImg"
+                    Image = "DefaultUserImg.png"
                 };
 
                 var result = await userManager.CreateAsync(User, model.Password);
