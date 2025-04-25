@@ -168,6 +168,11 @@ h6 {
 
 /* PHP Email Form Messages
 ------------------------------*/
+
+.loading, .sent-message, .error-message {
+    display: none;
+}
+
 .php-email-form .error-message {
     display: none;
     background: #df1529;
@@ -747,7 +752,7 @@ section,
 .section {
     color: var(--default-color);
     background-color: var(--background-color);
-    padding: 60px 0;
+    padding: 20px 0;
     scroll-margin-top: 92px;
     overflow: clip;
 }
@@ -1488,16 +1493,16 @@ section,
         color: color-mix(in srgb, var(--default-color), transparent 70%);
     }
 
-.book-a-table .php-email-form button[type=submit] {
+.book-a-table button[type=submit] {
     color: var(--contrast-color);
     background: var(--accent-color);
     border: 0;
     padding: 14px 60px;
     transition: 0.4s;
-    border-radius: 4px;
+    border-radius: 30px;
 }
 
-    .book-a-table .php-email-form button[type=submit]:hover {
+    .book-a-table button[type=submit]:hover {
         background: color-mix(in srgb, var(--accent-color), transparent 20%);
     }
 

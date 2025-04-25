@@ -29,6 +29,10 @@ namespace Restaurant_Project
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            builder.Services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/Account/LoginSignUp";
+            });
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
