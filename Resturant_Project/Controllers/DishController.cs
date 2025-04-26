@@ -18,6 +18,11 @@ namespace Restaurant_Project.Controllers
             var dishesModel = db.Dishes.ToList();
             return View(dishesModel);
         }
+
+        public IActionResult NotFountPage()
+        {
+            return View();
+        }
         public IActionResult Create()
         {
             var categores = db.Categories.ToList();
@@ -55,8 +60,16 @@ namespace Restaurant_Project.Controllers
         {
             var product = db.Dishes.Find(Id);
             var categores = db.Categories.ToList();
-            ViewData["categores"] = categores;
-            return View(product);
+            if (product != null)
+            {
+                ViewData["categores"] = categores;
+                return View(product);
+            }
+            else
+            {
+
+                return RedirectToAction("NotFountPage");
+            }
         }
         [HttpPost]
         public IActionResult Edit(Dish product, IFormFile photo)

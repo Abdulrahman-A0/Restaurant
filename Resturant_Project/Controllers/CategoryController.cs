@@ -18,7 +18,10 @@ namespace Restaurant_Project.Controllers
             var categoryModel = db.Categories.ToList();
             return View(categoryModel);
         }
-
+        public IActionResult NotFountPage()
+        {
+            return View();
+        }
         public IActionResult Create()
         {
 
@@ -39,7 +42,16 @@ namespace Restaurant_Project.Controllers
         public IActionResult Edit(int Id)
         {
             var category = db.Categories.Find(Id);
-            return View(category);
+            if (category != null)
+            {
+                return View(category);
+            }
+
+            else
+            {
+
+                return RedirectToAction("NotFountPage");
+            }
         }
 
 
