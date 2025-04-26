@@ -19,5 +19,7 @@ namespace Restaurant_Project.Models
         public ICollection<Review>? Reviews { get; set; }
         public ICollection<OrderDetail>? OrderDetails { get; set; }
 
+        public ICollection<CartItem>? CartItems { get; set; }
+
     }
 }

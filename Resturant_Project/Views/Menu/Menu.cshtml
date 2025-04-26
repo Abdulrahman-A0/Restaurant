@@ -67,9 +67,21 @@
                                         <label for="star1_@dish.AverageRate" title="1 star"></label>
                                     </div>
                                 </div>
-                                <p class="price">
-                                    @dish.Price
-                                </p>
+                                <div class="order">
+                                    <p class="price">
+                                        @dish.Price
+                                    </p>
+                                    @if(dish.InStock)
+                                    {
+                                        <a href="/Cart/AddToCart?dishId=@dish.Id">
+                                            <i b-lkp8igyiih="" class="fa-solid fa-fish fish" aria-hidden="true"></i>
+                                        </a>
+                                    }
+                                    else
+                                    {
+                                        <i class="fa-solid fa-fish out-of-stock" title="Out Of Stock" aria-hidden="true"></i>
+                                    }
+                                </div>
                             </div><!-- Menu Item -->
                         }
                       
