@@ -1,10 +1,5 @@
-﻿@model List<Category>
-@functions {
-    string Slugify(string text)
-    {
-        return text.ToLower().Replace(" ", "-").Replace("&", "").Replace("#", "");
-    }
-}
+﻿@using Microsoft.IdentityModel.Tokens
+@model List<Dish>
 <head>
     <link rel="stylesheet" href="~/assets/css/rank.css">
 </head>
@@ -15,86 +10,87 @@
     <div class="container section-title" data-aos="fade-up">
         <p><span class="description-title">Result:</span></p>
     </div><!-- End Section Title -->
+    @if (Model.IsNullOrEmpty())
+    {
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-center align-items-center height-vh">
 
+                <div class="col-lg-6 col-12">
+                    <div class="col-12 d-flex flex-column justify-content-center align-items-center">
+                        <h1 class="main-heading">Not Found :(</h1>
+                        <h2>سمكة التوونه العنييده</h2>
+                        <div class="text-center mt-4 mb-5">
+                            <button class="btn btn-success px-3 mr-2"><i class="fa fa-home"></i> <a href="/Home/Index">Home</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
     <div class="container">
 
         <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
 
             <div class="tab-pane fade active show" id="menu-starters">
                 <div class="row gy-5">
+                    @foreach (var dish in Model)
+                    {
+                        <div class="col-lg-4 menu-item">
+                            <a href="~/assets/img/@dish.Image" class="glightbox"><img src="~/assets/img/@dish.Image" class="menu-img img-fluid" alt=""></a>
+                            <h4>@dish.Name</h4>
+                            <p class="ingredients">
+                                @dish.Description
+                            </p>
+                            <div class="rating-container stars">
+                                <div class="rating">
+                                    @{
+                                        var fullStars = (int)Math.Floor(dish.AverageRate);
+                                        var hasHalfStar = (dish.AverageRate - fullStars) >= 0.5;
+                                        var emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                                    }
 
-                    <div class="col-lg-4 menu-item">
-                        <a href="~/assets/img/menu/menu-item-1.png" class="glightbox"><img src="~/assets/img/menu/menu-item-1.png" class="menu-img img-fluid" alt=""></a>
-                        <h4>Magnam Tiste</h4>
-                        <p class="ingredients">
-                            Lorem, deren, trataro, filede, nerada
-                        </p>
-                        <p class="price">
-                            $5.95
-                        </p>
-                    </div><!-- Menu Item -->
+                                    @for (int j = 0; j < fullStars; j++)
+                                    {
+                                        <i class="fas fa-star text-warning"></i>
+                                    }
+                                    @if (hasHalfStar)
+                                    {
+                                        <i class="fas fa-star-half-alt text-warning"></i>
+                                    }
+                                    @for (int j = 0; j < emptyStars; j++)
+                                    {
+                                        <i class="far fa-star text-warning"></i>
+                                    }
+                                </div>
+                            </div>
+                            <div class="order">
+                                <p class="price">
+                                    @dish.Price
+                                </p>
+                                @if (dish.InStock)
+                                {
+                                    <a href="/Cart/AddToCart?dishId=@dish.Id">
+                                        <i b-lkp8igyiih="" class="fa-solid fa-fish fish" aria-hidden="true"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <i class="fa-solid fa-fish out-of-stock" title="Out Of Stock" aria-hidden="true"></i>
+                                }
+                            </div>
+                        </div>
 
-                    <div class="col-lg-4 menu-item">
-                        <a href="~/assets/img/menu/menu-item-2.png" class="glightbox"><img src="~/assets/img/menu/menu-item-2.png" class="menu-img img-fluid" alt=""></a>
-                        <h4>Aut Luia</h4>
-                        <p class="ingredients">
-                            Lorem, deren, trataro, filede, nerada
-                        </p>
-                        <p class="price">
-                            $14.95
-                        </p>
-                    </div><!-- Menu Item -->
-
-                    <div class="col-lg-4 menu-item">
-                        <a href="~/assets/img/menu/menu-item-3.png" class="glightbox"><img src="~/assets/img/menu/menu-item-3.png" class="menu-img img-fluid" alt=""></a>
-                        <h4>Est Eligendi</h4>
-                        <p class="ingredients">
-                            Lorem, deren, trataro, filede, nerada
-                        </p>
-                        <p class="price">
-                            $8.95
-                        </p>
-                    </div><!-- Menu Item -->
-
-                    <div class="col-lg-4 menu-item">
-                        <a href="~/assets/img/menu/menu-item-4.png" class="glightbox"><img src="~/assets/img/menu/menu-item-4.png" class="menu-img img-fluid" alt=""></a>
-                        <h4>Eos Luibusdam</h4>
-                        <p class="ingredients">
-                            Lorem, deren, trataro, filede, nerada
-                        </p>
-                        <p class="price">
-                            $12.95
-                        </p>
-                    </div><!-- Menu Item -->
-
-                    <div class="col-lg-4 menu-item">
-                        <a href="~/assets/img/menu/menu-item-5.png" class="glightbox"><img src="~/assets/img/menu/menu-item-5.png" class="menu-img img-fluid" alt=""></a>
-                        <h4>Eos Luibusdam</h4>
-                        <p class="ingredients">
-                            Lorem, deren, trataro, filede, nerada
-                        </p>
-                        <p class="price">
-                            $12.95
-                        </p>
-                    </div><!-- Menu Item -->
-
-                    <div class="col-lg-4 menu-item">
-                        <a href="~/assets/img/menu/menu-item-6.png" class="glightbox"><img src="~/assets/img/menu/menu-item-6.png" class="menu-img img-fluid" alt=""></a>
-                        <h4>Laboriosam Direva</h4>
-                        <p class="ingredients">
-                            Lorem, deren, trataro, filede, nerada
-                        </p>
-                        <p class="price">
-                            $9.95
-                        </p>
-                    </div><!-- Menu Item -->
+                        <!-- Menu Item -->
+                    }
 
                 </div>
             </div><!-- End Starter Menu Content -->
         </div>
 
     </div>
-
+    }
 </section><!-- /Menu Section -->
 <script>
         function changeStyle(style) {
