@@ -25,7 +25,8 @@
 
     <div class="mb-3 form-check">
         <!-- Hidden field to send 'false' if unchecked -->
-        <input type="hidden" name="InStock" value="false" />
+        @* <input type="hidden" name="InStock" value="false" /> *@
+        <input type="hidden" name="AverageRate" value="@Model.AverageRate" />
 
         <input type="checkbox" class="form-check-input" id="exampleInputInStock" name="InStock" aria-describedby="emailHelp"
                value="true" @(Model.InStock ? "checked" : "")>
@@ -40,8 +41,15 @@
         <select name="categoryId" class="form-select">
             @foreach (var item in (List<Category>)ViewData["categores"])
             {
-                <option value="@item.Id"> @item.Name</option>
+                if (Model.CategoryId == item.Id)
+                {
+                    <option value="@item.Id" selected>@item.Name</option>
+                }
+                else
+                {
+                    <option value="@item.Id">@item.Name</option>
 
+                }
             }
 
         </select>
