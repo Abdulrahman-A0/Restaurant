@@ -3,25 +3,23 @@
 <form action="/Dish/Create" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" name="Name" aria-describedby="emailHelp">
+        <input required type="text" class="form-control" id="exampleInputEmail1" name="Name" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
         <label for="exampleInputDescription" class="form-label">Description</label>
-        <input type="text" class="form-control" id="exampleInputDescription" name="Description" aria-describedby="emailHelp">
+        <input required type="text" class="form-control" id="exampleInputDescription" name="Description" aria-describedby="emailHelp">
     </div>
     <div class="mb-3">
         <label for="exampleInputphoto" class="form-label">Image</label>
-        <input type="file" class="form-control" id="exampleInputphoto" name="Image" aria-describedby="emailHelp" onchange="previewImage(event)">
+        <input required type="file" class="form-control" id="exampleInputphoto" name="Image" aria-describedby="emailHelp" onchange="previewImage(event)">
         <br>
         <img id="photoPreview" src="#" alt="Image Preview" ; width: 200px; height: auto;">
     </div>
     <div class="mb-3">
         <label for="exampleInputprice" class="form-label">Price</label>
-        <input type="number" class="form-control" id="exampleInputprice" name="price" aria-describedby="emailHelp">
+        <input required type="number" class="form-control" id="exampleInputprice" name="price" aria-describedby="emailHelp">
     </div>
-   <div class="mb-3 form-check">
-    <!-- Hidden input عشان يضمن يبعت false لو مش متعلم -->
-    <input type="hidden" name="InStock" value="false" />
+   <div class="mb-3 form-check">   
 
     <input type="checkbox" class="form-check-input" id="exampleInputInStock" name="InStock" value="true">
     <label class="form-check-label" for="exampleInputInStock">In Stock</label>

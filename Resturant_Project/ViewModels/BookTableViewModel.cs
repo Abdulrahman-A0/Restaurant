@@ -26,7 +26,7 @@ namespace Restaurant_Project.ViewModels
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             var reservationDateTime = Date.Date + Time;
-            if (reservationDateTime < DateTime.Now.AddHours(24))
+            if (reservationDateTime <= DateTime.Now.AddHours(24))
             {
                 yield return new ValidationResult(
                     "You must book at least 24 hours in advance.",

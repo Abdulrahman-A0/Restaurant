@@ -6,11 +6,11 @@
         <label for="exampleInputEmail1" class="form-label">Name</label>
         <input type="hidden" class="form-control" id="exampleInputEmail1" name="Id" aria-describedby="emailHelp" value="@Model.Id">
 
-        <input type="text" class="form-control" id="exampleInputEmail1" name="Name" aria-describedby="emailHelp" value="@Model.Name">
+        <input required type="text" class="form-control" id="exampleInputEmail1" name="Name" aria-describedby="emailHelp" value="@Model.Name">
     </div>
     <div class="mb-3">
         <label for="exampleInputDescription" class="form-label">Description</label>
-        <input type="text" class="form-control" id="exampleInputDescription" name="Description" aria-describedby="emailHelp" value="@Model.Description">
+        <input required type="text" class="form-control" id="exampleInputDescription" name="Description" aria-describedby="emailHelp" value="@Model.Description">
     </div>
     <div class="mb-3">
         <label for="exampleInputphoto" class="form-label">Photo</label>
@@ -20,7 +20,7 @@
     </div>
     <div class="mb-3">
         <label for="exampleInputprice" class="form-label">Price</label>
-        <input type="number" class="form-control" id="exampleInputprice" name="price" aria-describedby="emailHelp" value="@Model.Price">
+        <input required type="number" class="form-control" id="exampleInputprice" name="price" aria-describedby="emailHelp" value="@Model.Price">
     </div>
 
     <div class="mb-3 form-check">
