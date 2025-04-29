@@ -1,0 +1,70 @@
+* {
+    margin-bottom: 5px;
+}
+
+button {
+    margin-top: 20px;
+    border: none;
+    background-color: #4bc3db;
+    color: white;
+    font-weight: 600;
+    padding: 6px;
+    border-radius: 7px;
+}
+
+.photo-container {
+    position: relative;
+    display: inline-block;
+}
+
+#photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%; /* Make it round */
+    cursor: pointer;
+}
+
+.edit-icon {
+    position: relative;
+    bottom: 35px;
+    right: -39px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+    .edit-icon img {
+        width: 24px;
+        height: 24px;
+    }
+
+#mainProfileImage,
+#photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* This clips and covers the area */
+    object-position: center;
+    border-radius: 0; /* Square shape */
+    cursor: pointer;
+}
+
+.font-weight-bold {
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    position: relative;
+    bottom: 100px;
+}
+
+.text-black-50 {
+    position: relative;
+    bottom: 97px;
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none !important;
+}

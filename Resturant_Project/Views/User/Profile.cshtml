@@ -1,0 +1,115 @@
+﻿@model UserProfileViewModel
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" asp-append-version="true" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/css/profile.css" asp-append-version="true">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container rounded bg-white mt-5 mb-5">
+        
+
+        <div class="row">
+        <form action="/User/UpdateUser" enctype="multipart/form-data" method="post">
+
+            <div class="col-md-3 border-right">
+
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5" width="150px" src="~/assets/img/@Model.Image" id="mainProfileImage">
+                    <div class="photo-container">
+                        <label for="fileInput">
+                            <!-- <img src="default-photo.jpg" id="photo" id="profileImage" /> -->
+                            <div class="edit-icon">
+                                <img src="https://cdn-icons-png.flaticon.com/512/84/84380.png" alt="Edit" />
+                            </div>
+                        </label>
+                    </div>
+
+                    <input name="Image" type="file" id="fileInput" style="display: none;" onchange="previewFile()" />
+                </div>
+                <span class="font-weight-bold">@Model.Name</span><span class="text-black-50">@Model.Email</span><span> </span>
+            </div>
+            <div class="col-md-5 border-right">
+                
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-12">
+                            <label class="labels">Name</label>
+                                <input required type="text" class="form-control" placeholder="Name" asp-for="Name" value="@Model.Name">
+                            </div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">Mobile Number</label>
+                                <input required type="text" class="form-control" placeholder="Enter Phone Number" asp-for="PhoneNumber" value="@Model.PhoneNumber">
+                            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                            </div>
+                        <div class="col-md-12">
+                            <label class="labels">Address Line</label>
+                                <input required type="text" class="form-control" placeholder="Enter Address Line" asp-for="Address" value="@Model.Address">
+                            <span asp-validation-for="Address" class="text-danger"></span>
+                            </div>
+                    </div>
+                    <div class="mt-5 text-center"><button type="submit">Save Profile</button></div>
+                </div>      
+            </div>
+            <div>
+
+            </div>
+            </form>
+            <div class="col-md-4">
+                <form action="/User/UpdatePassword" method="post">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience">
+                        <h4>Change Password</h4>
+                    </div><br>
+                    <div class="col-md-12">
+                        <label class="labels">Old Password</label>
+                            <input asp-for="OldPassword" required type="password" class="form-control" value="">
+                        </div> <br>
+                        <span asp-validation-for="OldPassword" class="text-danger"></span>
+
+                    <div class="col-md-12">
+                        <label class="labels">New Password</label>
+                            <input asp-for="NewPassword" required type="password" class="form-control" value="">
+                        </div>
+                        <span asp-validation-for="NewPassword" class="text-danger"></span>
+                        @if (TempData["SuccessMessage"] != null)
+                        {
+                        <div class="alert alert-success">
+                            @TempData["SuccessMessage"]
+                        </div>
+                        }
+                        <button class="submit">submit</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function previewFile() {
+          const fileInput = document.getElementById('fileInput');
+          const mainProfileImage = document.getElementById('mainProfileImage'); // Top photo
+
+          const file = fileInput.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              const newImageSrc = e.target.result;
+              mainProfileImage.src = newImageSrc; // Replace the top profile photo
+            }
+            reader.readAsDataURL(file);
+          }
+        }
+    </script>
+</body>
+

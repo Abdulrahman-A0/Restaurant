@@ -16,10 +16,12 @@
     }
 
     <div class="logged">
+        <a href="/User/Profile">
         <div class="center-photo">
         <img src="~/assets/img/@currentUser.Image" />
             <p>Hello, <span @(isAdmin ? "class=isAdmin" : "class=user")>@currentUser.Name</span></p>
         </div>
+        </a>
         <a class="btn-getstarted" asp-controller="Account" asp-action="Logout">Logout</a>
     </div>
 }
