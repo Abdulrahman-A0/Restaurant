@@ -15,8 +15,8 @@
             <div class="col-lg-4 reservation-img sora" style="background-image: url('@Url.Content("~/assets/img/reservation3.png")');"></div>
 
             <div class="col-lg-8 d-flex align-items-center reservation-form-bg" data-aos="fade-up" data-aos-delay="200">
-                <form action="/Booking/BookTable" method="post" role="form">
-                    <div class="row gy-4">
+                <form action="/Booking/BookTable" method="post" role="form" class="booktable">
+                    <div class="row gy-4 ">
                         <div class="col-lg-4 col-md-6">
                             <input type="date" name="date" class="form-control" id="date" placeholder="Date" required="">
                             <span class="text-danger">@Html.ValidationMessageFor(m => m.Date)</span>
@@ -29,7 +29,7 @@
                             <input type="number" class="form-control" name="duration" id="duration" placeholder="Duration in Hours" required="">
                             <span class="text-danger">@Html.ValidationMessageFor(m => m.Duration)</span>
                         </div>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-4 col-md-6 ">
                             <input type="number" class="form-control" name="tablecount" id="tablecount" placeholder="Number of Tables" required="">
                             <span class="text-danger">@Html.ValidationMessageFor(m => m.TableCount)</span>
                         </div>

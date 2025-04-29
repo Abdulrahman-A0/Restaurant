@@ -231,3 +231,20 @@
         color: #7f7f90
     }
 /*End Order*/
+/*form design*/
+.form-design {
+    display: flex;
+    flex-basis: 65%;
+    justify-content: space-between;
+}
+/*end form design*/
+@media(max-width:770px){
+    .form-design{
+        flex-direction:column;
+    }
+}
+/*Start book table*/
+.booktable{
+    padding:5% 3%;
+}
+/*ENd book table*/
