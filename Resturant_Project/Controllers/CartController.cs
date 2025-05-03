@@ -151,6 +151,7 @@ namespace Restaurant_Project.Controllers
             _context.Carts.Remove(cart);
 
             _context.SaveChanges();
+            TempData["SuccessMessage"] = "Your Catch on it's way to you";
             return RedirectToAction("Cart");
         }
 

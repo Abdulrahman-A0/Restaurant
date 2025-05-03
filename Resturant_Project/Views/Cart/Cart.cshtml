@@ -65,6 +65,12 @@
 							</div>
 
 							<button type="submit" class="btn btn-primary btn-lg btn-block cart-btn">Checkout</button>
+							@if (TempData["SuccessMessage"] != null)
+							{
+							<div class="alert alert-success">
+								@TempData["SuccessMessage"]
+							</div>
+							}
 						</div>
 					</div>
 				</div>
