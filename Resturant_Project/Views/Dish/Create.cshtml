@@ -1,5 +1,5 @@
-﻿<h2>Create New Dish</h2>
-
+﻿<div class="cat-dish">
+<h2>Create New Dish</h2>
 <form action="/Dish/Create" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -19,10 +19,11 @@
         <label for="exampleInputprice" class="form-label">Price</label>
         <input required type="number" class="form-control" id="exampleInputprice" name="price" aria-describedby="emailHelp">
     </div>
-   <div class="mb-3 form-check">   
-
-    <input type="checkbox" class="form-check-input" id="exampleInputInStock" name="InStock" value="true">
-    <label class="form-check-label" for="exampleInputInStock">In Stock</label>
+   <div class="mb-3 form-check">
+    <div class="checkbox-wrapper">
+        <input type="checkbox" class="form-check-input" id="exampleInputInStock" name="InStock" value="true">
+        <label class="form-check-label" for="exampleInputInStock">In Stock</label>
+    </div>
 </div>
 
     <div class="mb-3">
@@ -40,7 +41,7 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+</div>
 <script>
     function previewImage(event) {
         var reader = new FileReader();

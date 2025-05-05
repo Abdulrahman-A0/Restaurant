@@ -1,6 +1,6 @@
 ﻿@model Dish
+<div class="cat-dish">
 <h2>Edit New Dish</h2>
-
 <form action="/Dish/Edit" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -27,11 +27,13 @@
         <!-- Hidden field to send 'false' if unchecked -->
         @* <input type="hidden" name="InStock" value="false" /> *@
         <input type="hidden" name="AverageRate" value="@Model.AverageRate" />
-
+        
+        <div class="checkbox-wrapper">
         <input type="checkbox" class="form-check-input" id="exampleInputInStock" name="InStock" aria-describedby="emailHelp"
                value="true" @(Model.InStock ? "checked" : "")>
-
         <label class="form-check-label" for="exampleInputInStock">In Stock</label>
+            </div>
+
     </div>
 
     <div class="mb-3">
@@ -57,7 +59,7 @@
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
+</div>
 <script>
     function previewImage(event) {
         var reader = new FileReader();
