@@ -64,7 +64,7 @@ namespace Restaurant_Project.Controllers
 
                 if (result.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(User, "Admin");
+                    await userManager.AddToRoleAsync(User, "Customer");
                     return RedirectToAction("LoginSignUp", "Account");
                 }
                 else

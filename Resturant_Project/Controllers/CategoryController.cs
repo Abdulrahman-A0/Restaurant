@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Restaurant_Project.Data;
 using Restaurant_Project.Models;
 
 namespace Restaurant_Project.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CategoryController : Controller
     {
         private readonly AppDbContext db;
@@ -79,4 +81,3 @@ namespace Restaurant_Project.Controllers
     }
 }
 
-      

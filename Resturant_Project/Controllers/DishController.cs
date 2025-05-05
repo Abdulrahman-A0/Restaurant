@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Restaurant_Project.Data;
 using Restaurant_Project.Models;
 
 namespace Restaurant_Project.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DishController : Controller
     {
         private readonly AppDbContext db;
@@ -129,4 +131,4 @@ namespace Restaurant_Project.Controllers
         }
     }
 
-} 
+}
