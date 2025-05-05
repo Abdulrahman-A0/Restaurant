@@ -23,9 +23,7 @@
         <input required type="number" class="form-control" id="exampleInputprice" name="price" aria-describedby="emailHelp" value="@Model.Price">
     </div>
 
-    <div class="mb-3 form-check">
-        <!-- Hidden field to send 'false' if unchecked -->
-        @* <input type="hidden" name="InStock" value="false" /> *@
+    <div class="mb-3 form-check checkbox-flex">
         <input type="hidden" name="AverageRate" value="@Model.AverageRate" />
         
         <div class="checkbox-wrapper">
