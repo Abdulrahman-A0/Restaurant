@@ -252,37 +252,40 @@
 /*cat-dish*/
 
 .cat-dish {
-    display: flex;
-    align-items: center;
-    flex-direction: column !important;
-    /*    width:80%;*/
-    margin: 0 auto;
-    text-align: center;
+display: flex;
+align-items: center;
+flex-direction: column !important;
+/*    width:80%;*/
+margin: 0 auto;
+text-align: center;
 }
 
-    .cat-dish input,
-    .cat-dish select,
-    .cat-dish {
-        margin: 0 auto;
+.cat-dish input,
+.cat-dish select,
+.cat-dish {
+    margin: 0 auto;
+}
+
+    .cat-dish input.form-control,
+    .cat-dish input[type="file"],
+    .cat-dish select.form-select {
+        width: auto !important;
+        flex: 0 1 auto !important;
     }
 
-        .cat-dish input.form-control,
-        .cat-dish input[type="file"],
-        .cat-dish select.form-select {
-            width: auto !important;
-            flex: 0 1 auto !important;
-        }
+    .cat-dish .checkbox-flex {
+        display: flex;
+        justify-content: center;
+    }
 
-        .cat-dish .checkbox-flex {
-            display: flex;
-            justify-content: center;
-        }
-
-        .cat-dish .checkbox-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
+    .cat-dish .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+#photoPreview {
+    max-width: 350px;
+    margin: 0 auto;
+}
 /*end cat-dish*/
